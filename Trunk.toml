@@ -1,26 +1,27 @@
 [build]
 # The index HTML file to drive the bundling process.
-target = "index.html"
+target = "./frontend/index.html"
 # Build in release mode.
-release = false
+release = true
 # The output dir for all final assets.
-dist = "../backend/dist"
+dist = "backend/dist/"
 # The public URL from which assets are to be served.
-public_url = "/dist/"
+public_url = "dist/"
 # Whether to include hash values in the output file names.
 filehash = true
 
 [serve]
 # The address to serve on.
-address = "127.0.0.1" #"${LOCAL_SERVER_ADDR}"
+address = "127.0.0.1"
 # The port to serve on.
-port = 8080 #"${LOCAL_SREVER_PORT}"
+port = 8080
 # Disable auto-reload of the web app.
 no_autoreload = true
 
+
 [clean]
 # The output dir for all final assets.
-dist = "dist"
+dist = "backend/dist"
 # Optionally perform a cargo clean.
 cargo = true
 
@@ -32,11 +33,12 @@ cargo = true
 rewrite = "/api/v1/"
 backend = "http://localhost:9090/"
 
-# [[hooks]]
-# # This hook example shows running a command inside a shell. As a result, features such as variable
-# # interpolation are available. This shows the TRUNK_STAGING_DIR environment variable, one of a set
-# # of default variables that Trunk inserts into your hook's environment. Additionally, this hook
-# # uses the build stage, meaning it executes in parallel with all of the existing asset pipelines.
-# stage = "build"
-# command = "sh"
-# command_arguments = ["-c", "echo Staging directory: $TRUNK_STAGING_DIR"]
+
+[[hooks]]
+# This hook example shows running a command inside a shell. As a result, features such as variable
+# interpolation are available. This shows the TRUNK_STAGING_DIR environment variable, one of a set
+# of default variables that Trunk inserts into your hook's environment. Additionally, this hook
+# uses the build stage, meaning it executes in parallel with all of the existing asset pipelines.
+stage = "build"
+command = "sh"
+command_arguments = ["-c", "cd backend && cargo run"]
