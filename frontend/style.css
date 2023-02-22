@@ -1,0 +1,264 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+::selection {
+    background-color: #8e44ad;
+    color: white;
+}
+
+body{
+    background-color: rgb(237, 237, 237);
+}
+
+a, button, ul, li   {
+    all: unset;
+}
+
+.navbar{
+    display: flex;
+    font-size: 2rem;
+    padding: .5em 1em;
+    flex-flow: row nowrap;
+    background-image: linear-gradient(45deg, #ffffff 0%, #e1e1e1 20%);
+    border-bottom: solid .5vmin #8e44ad;
+}
+
+.navbar-logo{
+    position: relative;
+    padding-left: 1rem;
+    flex-grow: 1;
+}
+
+.navbar-logo::before{
+    content: '<';
+    left: -.2rem;
+}
+
+.navbar-logo::after{
+    content: '/>';
+}
+
+.navbar-logo::before , .navbar-logo::after{
+    color: #8e44ad;
+    position: absolute
+}
+
+.navbar-list{
+    flex-grow: 5;
+    display: flex;
+    gap: 3rem;
+    justify-content: flex-end;
+}
+
+.navbar-item{
+    position: relative;
+    display: block;
+    min-width: 2rem;
+    border: none;
+}
+
+.navbar-item :hover{
+    cursor: pointer;
+}
+
+.article-grid{
+    padding: 1rem 2rem;
+    width: 100%;
+    height: 91vmin;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: .5rem;
+    overflow: hidden;
+    /* background-color: #1e1e1e; */
+}
+
+
+#item-0 {
+
+    --backgorund-color: #E99A8B; 
+    grid-row-start: 1;
+    grid-column-start: 2;
+    grid-row-end: 2;
+    grid-column-end: 5;
+    
+ }
+ #item-1 {
+ 
+    --backgorund-color: #75D875; 
+    grid-row-start: 1;
+    grid-column-start: 1;
+ 
+    grid-row-end: 2;
+    grid-column-end: 2;
+    
+ }
+ #item-2 {
+ 
+    --backgorund-color: #AF7B8B; 
+    grid-row-start: 2;
+    grid-column-start: 1;
+ 
+    grid-row-end: 3;
+    grid-column-end: 2;
+    
+ }
+ #item-3 {
+    --backgorund-color: #BF89BD; 
+    grid-row-start: 3;
+    grid-column-start: 1;
+ 
+    grid-row-end: 4;
+    grid-column-end: 3;
+    
+ }
+ #item-4 {
+    --backgorund-color: #67996C; 
+    grid-row-start: 4;
+    grid-column-start: 1;
+ 
+    grid-row-end: 5;
+    grid-column-end: 2;
+    
+ }
+ #item-5 {
+    --backgorund-color: #BF9D5D; 
+    grid-row-start: 4;
+    grid-column-start: 2;
+ 
+    grid-row-end: 5;
+    grid-column-end: 3;
+    
+ }
+ #item-6 {
+    --backgorund-color: #AA977D; 
+    grid-row-start: 3;
+    grid-column-start: 3;
+ 
+    grid-row-end: 5;
+    grid-column-end: 4;
+    
+ }
+ #item-7 {
+    --backgorund-color: #8BC9BF; 
+    grid-row-start: 2;
+    grid-column-start: 2;
+ 
+    grid-row-end: 3;
+    grid-column-end: 4;
+    
+ }
+ #item-8 {
+    --backgorund-color: #F9AD59; 
+    grid-row-start: 2;
+    grid-column-start: 4;
+ 
+    grid-row-end: 4;
+    grid-column-end: 6;
+    
+ }
+ #item-9 {
+    --backgorund-color: #7D87B5; 
+    grid-row-start: 4;
+    grid-column-start: 4;
+    grid-row-end: 5;
+    grid-column-end: 7;
+    
+ }
+ #item-10 {
+    --backgorund-color: #75E5F5; 
+    grid-row-start: 3;
+    grid-column-start: 6;
+    grid-row-end: 4;
+    grid-column-end: 7;
+    
+ }
+ #item-11 {
+    --backgorund-color: #9A575A; 
+    grid-row-start: 2;
+    grid-column-start: 6;
+    grid-row-end: 3;
+    grid-column-end: 7;
+ }
+ #item-12 {
+    --backgorund-color: #B77777; 
+    grid-row-start: 1;
+    grid-column-start: 2;
+    grid-row-end: 2;
+    grid-column-end: 6;
+ }
+ #item-13 {
+    --backgorund-color: #567779; 
+    grid-row-start: 1;
+    grid-column-start: 6;
+    grid-row-end: 2;
+    grid-column-end: 7;
+ }
+
+ .article-preview{
+    border-radius: 1vmin;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.article-preview::after{
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    z-index: -1;
+    opacity: 1;
+    transition: opacity .8s ease-in-out;
+    background-color: var(--backgorund-color);
+}
+
+.article-preview-background{
+    left: 0; right: 0;
+    bottom: 0; top: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    z-index: 4;
+    opacity: 0.1;
+    transition: .6s ease-in-out all;
+}
+
+
+.article-preview-background:hover{
+    opacity: .7;
+    cursor: pointer;
+    transform: scale(1.2);
+
+}
+
+
+.article-preview-information{
+    background-color: rgb(51, 51, 51);
+    position: absolute;
+    top: 60%; bottom: 0;
+    left: 0; right: 0;
+    padding: 1vmin;
+
+}
+
+.article-preview-information-title{
+    color: white;
+}
+
+.article-preview-information-paragraph{
+    color: gray;
+}
+
+
+.article-page{
+    width: 100vmin;
+    height: 100vmin;
+}
