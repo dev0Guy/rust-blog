@@ -1,4 +1,7 @@
 mod components;
 mod app;
+mod router;
 
-pub use app::App;
+pub mod pages;
+pub use app::*;
+pub use router::*;

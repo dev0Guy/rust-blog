@@ -1,5 +1,6 @@
-use frontend::App;
+use frontend::ClientApp;
 
 fn main() {
-    yew::Renderer::<App>::new().render();
+    wasm_logger::init(wasm_logger::Config::default());
+    yew::Renderer::<ClientApp>::new().hydrate();
 }
